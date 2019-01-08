@@ -35,6 +35,7 @@ body	{
     img {
       height: 100%;
       object-fit: cover;
+      max-height: 600px;
     }
   }
   .burger-title {
@@ -73,5 +74,24 @@ body	{
 @supports (-webkit-nbsp-mode: space) {
   .burger {
     grid-template-rows: auto 192px;
+  }
+}
+
+// 1000px over sideを可変にする
+@media (min-width: 1000px) {
+  .burger {
+    --side: calc( (100vw - 960px ) / 2 );
+    .burger-text {
+      line-height: 2.5;
+    }
+  }
+}
+
+// 769px~999px
+@media (min-width: 769px) and (max-width: 999px) {
+  .burger {
+    .burger-text {
+      line-height: calc(22.2px + 7.8 * (100vw - 768px) / 232);
+    }
   }
 }
