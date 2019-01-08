@@ -34,8 +34,12 @@ body	{
   .orange-photo {
     grid-column: 1 / -1;
     grid-row: 1;
-    height: 100%;
-    object-fit: cover;
+    margin: 0 calc( var(--side) * -1);
+    img {
+      height: 100%;
+      object-fit: cover;
+      max-height: 600px;  // PC用
+    }
   }
 
   .orange-text {
@@ -76,6 +80,30 @@ body	{
     p {
       font-size: 14px;
       line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .orange {
+    .orange-text {
+      justify-self: end;
+    }
+
+    .orange-sub {
+      grid-column: 1 / -1;
+    }
+    .orange-photo img {
+      filter: brightness(60%);
+    }
+
+    &::after { // Edge 16用
+      grid-column: 1 / -1;
+      grid-row: 1;
+      margin: 0 calc( var(--side) * -1 );
+      content: '';
+      background-color: rgba(0,0,0,0.4);
     }
   }
 }
