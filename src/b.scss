@@ -95,3 +95,49 @@ body	{
     }
   }
 }
+
+@media (max-width: 767px) {
+  .burger {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 180px auto;
+    padding-left: 30px; // text用
+    &::after { // text用
+      grid-column: 1;
+      grid-row: 2;
+      justify-self: start;
+      z-index: 1;
+      width: 30px;
+      content:'';
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0) 100%
+      );
+    }
+
+    .burger-title {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      font-size: 35px;
+    }
+    .burger-text {
+      grid-column: 1;
+      grid-row: 2;
+      overflow-x: auto;
+      min-width: 1px; // safari 10.x用
+      justify-self: stretch; //横スクロール用
+    }
+    .burger-sub {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      
+      display: grid;
+      grid-auto-flow: column;
+      column-gap: 10px;
+      max-width: 280px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
