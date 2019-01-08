@@ -29,18 +29,53 @@ body	{
   grid-template-rows: repeat(2, auto);
   row-gap: 30px;
   margin: 0 var(--side) 30px;
+  font-family: 'Noto Sans Japanese', sans-serif;
 
   .orange-photo {
     grid-column: 1 / -1;
     grid-row: 1;
+    height: 100%;
+    object-fit: cover;
   }
 
   .orange-text {
     grid-column: span 5 / -1;
     grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    z-index: 10;
+    color: #fff;
+    writing-mode: vertical-rl;
+    text-shadow: 0 0 20px #000;
+
+    display: grid;
+    grid-row-gap: 15px;
+    justify-items: end;
+
+    h2 {
+      font-size: 40px;
+      font-weight: 900px;
+      line-height: 1.5;
+      padding-bottom: 20px;
+    }
+    p {
+      height: 18em;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
   }
   .orange-sub {
     grid-column: 1 / span 6;
     grid-row: 2;
+
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 10px;
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 }
